@@ -1,0 +1,39 @@
+{
+  "name": "sync-mysql",
+  "version": "0.0.0",
+  "main": "lib/index.js",
+  "description": "Make synchronous queries to a mysql database",
+  "keywords": [],
+  "files": [
+    "lib/"
+  ],
+  "dependencies": {
+    "babel-runtime": "^6.18.0",
+    "concat-stream": "^1.6.0",
+    "then-mysql": "^1.1.1"
+  },
+  "devDependencies": {
+    "babel-cli": "*",
+    "babel-jest": "*",
+    "babel-preset-forbeslindesay": "*",
+    "eslint": "*",
+    "eslint-config-forbeslindesay": "*",
+    "jest": "*"
+  },
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "babel src --out-dir lib",
+    "lint": "eslint src",
+    "test": "jest ./src --coverage && npm run lint",
+    "watch": "jest ./src --coverage --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ForbesLindesay/sync-mysql.git"
+  },
+  "author": {
+    "name": "Forbes Lindesay",
+    "url": "http://github.com/ForbesLindesay"
+  },
+  "license": "MIT"
+}
