@@ -1,6 +1,6 @@
 {
-  "name": "sync-mysql",
-  "version": "0.0.0",
+  "name": "@forbeslindesay/sync-mysql",
+  "version": "1.0.0",
   "main": "lib/index.js",
   "description": "Make synchronous queries to a mysql database",
   "keywords": [],
