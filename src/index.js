@@ -71,7 +71,7 @@ function request(input) {
     );
   }
   const req = JSON.stringify(input);
-  const res = spawnSync(process.execPath, [require.resolve('./lib/worker.js')], {input: req});
+  const res = spawnSync(process.execPath, [WORKER_PATH], {input: req});
   if (res.status !== 0) {
     throw new Error(res.stderr.toString());
   }
