@@ -24,8 +24,8 @@
     "prepublish": "npm run build",
     "build": "babel src --out-dir lib",
     "lint": "eslint src",
-    "test": "jest ./src --coverage && npm run lint",
-    "watch": "jest ./src --coverage --watch"
+    "test": "jest ./src/** --coverage && npm run lint",
+    "watch": "jest ./src/** --coverage --watch"
   },
   "repository": {
     "type": "git",
