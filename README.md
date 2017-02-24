@@ -1,5 +1,7 @@
 # sync-mysql
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ForbesLindesay/sync-mysql.svg)](https://greenkeeper.io/)
+
 Make synchronous queries to a mysql database
 
 [![Build Status](https://img.shields.io/travis/ForbesLindesay/sync-mysql/master.svg)](https://travis-ci.org/ForbesLindesay/sync-mysql)
