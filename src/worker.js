@@ -1,28 +1,41 @@
-import concat from 'concat-stream';
 import MySql from 'then-mysql';
 import Promise from 'promise';
 
-function respond(data) {
-  process.stdout.write(JSON.stringify(data), () => {
-    process.exit(0);
-  });
-}
-
-process.stdin.pipe(concat((stdin) => {
-  const req = JSON.parse(stdin.toString());
-
+function init(config) {
   const db = new MySql({
-    ...req.config,
+    ...config,
     connectionLimit: 1,
   });
-
-  Promise.resolve(null).then(() => {
-    return db[req.method](...req.args);
-  }).finally(result => {
-    return db.dispose();
-  }).done(result => {
-    respond({success: true, result});
-  }, err => {
-    respond({success: false, error: err.message});
-  });
-}));
+  const results = [];
+  return message => {
+    switch (message.type) {
+      case 'dispose':
+        return db.dispose();
+      case 'query':
+        return db.query(message.str, message.values);
+      case 'call':
+        return db.call(message.name, message.args);
+      case 'queue-query': {
+        const index = results.length;
+        results.push(db.query(message.str, message.values));
+        return index;
+      }
+      case 'queue-call': {
+        const index = results.length;
+        results.push(db.query(message.str, message.values));
+        return index;
+      }
+      case 'end': {
+        const result = results[message.id];
+        results[message.id] = null;
+        return result;
+      }
+      case 'end-all': {
+        return Promise.all(results).forEach((value, i) => {
+          results[i] = null;
+        }).then(() => null);
+      }
+    }
+  };
+}
+module.exports = init;

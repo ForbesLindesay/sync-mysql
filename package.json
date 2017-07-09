@@ -10,6 +10,7 @@
   "dependencies": {
     "babel-runtime": "^6.18.0",
     "concat-stream": "^1.6.0",
+    "sync-rpc": "^1.1.0",
     "then-mysql": "^1.1.1"
   },
   "devDependencies": {
