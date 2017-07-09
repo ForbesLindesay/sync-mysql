@@ -31,9 +31,12 @@ function init(config) {
         return result;
       }
       case 'end-all': {
-        return Promise.all(results).forEach((value, i) => {
-          results[i] = null;
-        }).then(() => null);
+        return Promise.all(results).then(r => {
+          r.forEach((v, i) => {
+            results[i] = null;
+          });
+          return null;
+        });
       }
     }
   };
