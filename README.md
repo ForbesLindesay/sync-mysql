@@ -6,6 +6,10 @@ Make synchronous queries to a mysql database
 [![Dependency Status](https://img.shields.io/david/ForbesLindesay/sync-mysql/master.svg)](http://david-dm.org/ForbesLindesay/sync-mysql)
 [![NPM version](https://img.shields.io/npm/v/sync-mysql.svg)](https://www.npmjs.org/package/sync-mysql)
 
+<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/gg9sZwctSLxyov1sJwW6pfyS/ForbesLindesay/sync-mysql'>
+  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/gg9sZwctSLxyov1sJwW6pfyS/ForbesLindesay/sync-mysql.svg' />
+</a>
+
 ## Installation
 
 ```
