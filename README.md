@@ -20,7 +20,8 @@ var MySql = require('sync-mysql');
 var connection = new MySql({
   host: 'localhost',
   user: 'me',
-  password: 'secret'
+  password: 'secret',
+  database: 'mysqldbName'
 });
 
 const result = connection.query('SELECT 1 + 1 AS solution');
