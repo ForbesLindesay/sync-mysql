@@ -96,6 +96,18 @@ class Connection {
     }
     return this.query('SELECT * FROM ?? WHERE id = ?', [table, id])[0];
   }
+  getRecordBy(table,column_name,value) {
+  if (typeof table !== 'string') {
+    throw new TypeError('Expected "table" to be a string but got ' + (typeof table === 'undefined' ? 'undefined' : (0, _typeof3.default)(table)));
+  }
+  if (typeof column_name !== 'string') {
+    throw new TypeError('Expected "column_name" to be a string but got ' + (typeof column_name === 'undefined' ? 'undefined' : (0, _typeof3.default)(column_name)));
+  }
+  if (typeof value !== 'string' && typeof value !== 'number') {
+    throw new TypeError('Expected "id" in table "' + table + '" to be a string or number but got ' + (typeof value === 'undefined' ? 'undefined' : (0, _typeof3.default)(value)));
+  }
+  return this.query('SELECT * FROM ?? WHERE '+column_name+' = ?', [table, value]);
+}
 }
 
 module.exports = Connection;
